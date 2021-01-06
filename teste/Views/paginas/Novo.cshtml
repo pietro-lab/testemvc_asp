@@ -1,0 +1,39 @@
+﻿
+<head runat="server">
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/jquery.maskedinput.min.js"></script>
+    <title>jQuery - Formatando campos em formulários WebForms</title>
+    <script type="text/javascript">
+         jQuery(function ($) {
+             $("#txtData").mask("99/99/9999");
+             $("#txtTelefone").mask("(099) 9999-9999");
+             $("#txtCep").mask("99999-999");
+             $("#txtCPF").mask("999.999.999-99");
+             $("#txtCNPJ").mask("99.999.999/9999-99");
+             $("#txtPlacaVeiculo").mask("aaa - 9999");
+             $("#txtIP").mask('099.099.099.099');
+         });
+    </script>
+    </head>
+    <div class="jumbotron">
+        <h1>Cadastrar paginas</h1>
+        <div>
+            <a href="/paginas" class="btn btn-default">ir para cadastro de paginas</a>
+        </div>
+        <form action="/paginas/criar" method="post">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="insira o nome">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input name="data" type="datetime" class="form-control" id="data" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="form-check">
+                <label for="conteudo">Conteúdo</label>
+                <textarea name="conteudo" class="form-control" id="conteudo"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>

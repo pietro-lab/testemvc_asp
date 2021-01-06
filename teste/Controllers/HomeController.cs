@@ -1,4 +1,5 @@
-﻿using System;
+﻿using busines;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,20 +11,14 @@ namespace teste.Controllers
     {
         public ActionResult Index()
         {
+             
+            ViewBag.paginas = new Pagina().Lista();
             return View();
+            //return teste;
         }
 
-        public ActionResult About()
+        public ActionResult novo()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
