@@ -50,5 +50,10 @@ namespace teste.Controllers
             pagina.Save();
             Response.Redirect("/paginas");
         }
+        public void Excluir(int id)
+        {
+            Pagina.Excluir(id);
+            Response.Redirect("/paginas");
+        }
     }
 }

@@ -45,6 +45,11 @@ namespace teste
                 new { controller = "Paginas", action = "Alterar", id = 0 }
                 );
             routes.MapRoute(
+                "paginas_excluir",
+                "paginas/{id}/excluir",
+                new {controller = "Paginas", action = "Excluir", id = 0}
+                );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Paginas", action = "Index", id = UrlParameter.Optional }

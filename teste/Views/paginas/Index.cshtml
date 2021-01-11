@@ -2,7 +2,21 @@
     ViewBag.Title = "Paginas";
     List<busines.Pagina> paginas = ViewBag.paginas;
 }
+<script>
+    var ValidaExclusao = function (id, evento)
+    {
+        
+        if (confirm("confirmar exclusão?"))
+        {
+            return true;
+        }
+        else {
+            evento.preventDefault();
+            return false;
+            }
+    }
 
+</script>
 <div class="jumbotron">
     <h1>Nova pagina</h1>
     <div>
@@ -13,6 +27,7 @@
                 <td>Nome</td>
                 <td>Data</td>
                 <td></td>
+                <td></td>
             </tr>
             @foreach (var p in paginas)
             {
@@ -21,7 +36,8 @@
                     <td>@p.id</td>
                     <td>@p.nome</td>
                     <td>@p.data</td>
-                    <td><a href="/paginas/@p.id/editar">alterar</a></td>
+                    <td><a href="/paginas/@p.id/editar" class="btn btn-primary"> alterar cadastro </a></td>
+                    <td><a href="/paginas/@p.id/Excluir" class="btn btn-danger" onclick="ValidaExclusao(@p.id, event)"> excluir cadastro</a></td>
                 </tr>
             }
         </table>
