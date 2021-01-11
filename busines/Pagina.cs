@@ -18,8 +18,8 @@ namespace busines
         {
             var lista = new List<Pagina>();
             var paginaDb = new database.Pagina();
-            
-            foreach (DataRow  row in paginaDb.lista().Rows)
+
+            foreach (DataRow row in paginaDb.lista().Rows)
             {
                 var pagina = new Pagina();
                 pagina.id = Convert.ToInt32(row["id"]);
@@ -31,12 +31,27 @@ namespace busines
             }
             return lista;
 
-            
+
         }
 
         public void Save()
         {
             new database.Pagina().Salvar(this.id, this.nome, this.data, this.conteudo);
+        }
+
+        public static Pagina BuscaPorId(int id)
+        {
+            var pagina = new Pagina();
+            var paginaDb = new database.Pagina();
+
+            foreach (DataRow row in paginaDb.BuscaPorId(id).Rows)
+            {               
+                pagina.id = Convert.ToInt32(row["id"]);
+                pagina.nome = row["nome"].ToString();
+                pagina.data = Convert.ToDateTime(row["data"]);
+                pagina.conteudo = row["conteudo"].ToString();               
+            }
+            return pagina;
         }
     }
 }

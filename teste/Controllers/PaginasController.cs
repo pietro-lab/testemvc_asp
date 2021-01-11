@@ -32,5 +32,23 @@ namespace teste.Controllers
             pagina.Save();
             Response.Redirect("/paginas");
         }
+        public ActionResult Editar(int id)
+        {
+            var pagina = Pagina.BuscaPorId(id);
+            ViewBag.Pagina = pagina;
+            return View();
+        }
+        [HttpPost]
+        public void Alterar(int id)
+        {
+            var pagina = Pagina.BuscaPorId(id);
+            DateTime date;
+            DateTime.TryParse(Request["data"], out date);
+            pagina.nome = Request["nome"];
+            pagina.data = date;
+            pagina.conteudo = Request["conteudo"];
+            pagina.Save();
+            Response.Redirect("/paginas");
+        }
     }
 }
