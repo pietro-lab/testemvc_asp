@@ -2,21 +2,6 @@
     ViewBag.Title = "Paginas";
     List<busines.Pagina> paginas = ViewBag.paginas;
 }
-<script>
-    var ValidaExclusao = function (id, evento)
-    {
-        
-        if (confirm("confirmar exclusão?"))
-        {
-            return true;
-        }
-        else {
-            evento.preventDefault();
-            return false;
-            }
-    }
-
-</script>
 <div class="jumbotron">
     <h1>Nova pagina</h1>
     <div>
