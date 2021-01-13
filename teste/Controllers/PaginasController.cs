@@ -39,21 +39,38 @@ namespace teste.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public void Alterar(int id)
         {
-            var pagina = Pagina.BuscaPorId(id);
-            DateTime date;
-            DateTime.TryParse(Request["data"], out date);
-            pagina.nome = Request["nome"];
-            pagina.data = date;
-            pagina.conteudo = Request["conteudo"];
-            pagina.Save();
+            try
+            {
+                var pagina = Pagina.BuscaPorId(id);
+                DateTime date;
+                DateTime.TryParse(Request["data"], out date);
+                pagina.nome = Request["nome"];
+                pagina.data = date;
+                pagina.conteudo = Request["conteudo"];
+                pagina.Save();
+
+                TempData["sucesso"] = "pagina alterada com sucesso";
+
+            }
+            catch(Exception err)
+            {
+                TempData["erro"] = "pagina não pode ser alterada" + err.Message;
+            }
             Response.Redirect("/paginas");
         }
         public void Excluir(int id)
         {
             Pagina.Excluir(id);
             Response.Redirect("/paginas");
+        }
+        public ActionResult Preview(int id)
+        {
+            var pagina = Pagina.BuscaPorId(id);
+            ViewBag.Pagina = pagina;
+            return View();
         }
     }
 }

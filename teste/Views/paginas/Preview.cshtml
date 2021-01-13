@@ -1,0 +1,21 @@
+﻿@{
+    busines.Pagina pagina = ViewBag.Pagina;
+}
+
+
+
+<div class="jumbotron">
+    <h1>@pagina.nome</h1>
+    <div>
+        <div>
+            @Html.Raw(pagina.conteudo);
+        </div>
+
+        <a href="/paginas/index" class="btn btn-default">voltar para paginas</a>
+        
+        
+
+    </div>
+
+</div>
+

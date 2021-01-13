@@ -1,19 +1,7 @@
 ﻿
 <head runat="server">
-    <script src="Scripts/jquery-2.1.1.min.js"></script>
-    <script src="Scripts/jquery.maskedinput.min.js"></script>
-    <title>jQuery - Formatando campos em formulários WebForms</title>
-    <script type="text/javascript">
-         jQuery(function ($) {
-             $("#txtData").mask("99/99/9999");
-             $("#txtTelefone").mask("(099) 9999-9999");
-             $("#txtCep").mask("99999-999");
-             $("#txtCPF").mask("999.999.999-99");
-             $("#txtCNPJ").mask("99.999.999/9999-99");
-             $("#txtPlacaVeiculo").mask("aaa - 9999");
-             $("#txtIP").mask('099.099.099.099');
-         });
-    </script>
+    <script src="https://cdn.tiny.cloud/1/b3x5hehyw3vl1r4qic5jp9bh624gkvuzw922n0nesx9jiwn3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
     </head>
     <div class="jumbotron">
         <h1>Cadastrar paginas</h1>

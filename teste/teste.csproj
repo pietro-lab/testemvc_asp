@@ -163,6 +163,7 @@
     <Content Include="Views\paginas\Index.cshtml" />
     <Content Include="Views\paginas\Novo.cshtml" />
     <Content Include="Views\paginas\Editar.cshtml" />
+    <Content Include="Views\paginas\Preview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

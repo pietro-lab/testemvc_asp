@@ -2,6 +2,16 @@
     ViewBag.Title = "Paginas";
     List<busines.Pagina> paginas = ViewBag.paginas;
 }
+@if(TempData["sucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["sucesso"]</div>
+}
+@if(TempData["erro"] != null)
+{
+    <div class="alert alert-success">@TempData["erro"]</div>
+}
+
+
 <div class="jumbotron">
     <h1>Nova pagina</h1>
     <div>
@@ -11,6 +21,7 @@
                 <td>ID</td>
                 <td>Nome</td>
                 <td>Data</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -23,6 +34,7 @@
                     <td>@p.data</td>
                     <td><a href="/paginas/@p.id/editar" class="btn btn-primary"> alterar cadastro </a></td>
                     <td><a href="/paginas/@p.id/Excluir" class="btn btn-danger" onclick="ValidaExclusao(@p.id, event)"> excluir cadastro</a></td>
+                    <td><a href="/paginas/@p.id/preview" target="_blank" class="btn btn-warning">preview</a></td>
                 </tr>
             }
         </table>
